@@ -51,7 +51,7 @@ import java.util.ArrayList;
       void print() {
         System.out.println(tokenSequence);
         for (Node node: children) {
-          print(1);
+          node.print(1);
         }
       }
 

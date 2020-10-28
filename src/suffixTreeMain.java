@@ -122,6 +122,22 @@ public class suffixTreeMain extends PApplet {
 
 //		Integer[] myList = {3, 3, 3, 5, 5, 7, 7, 7, 2, 3, 5};
 //		ArrayList<Integer> testList = new ArrayList(Arrays.asList(myList));
+//
+//		System.out.println(Arrays.asList("abracadabra".split("")));
+		Tree<String> suffix_1 = new Tree(3);
+		ArrayList<String> testList1 = new ArrayList();
+		testList1.addAll(Arrays.asList("abracadabra".split("")));
+		suffix_1.train(testList1);
+
+		Tree<String> suffix_2 = new Tree(3);
+		ArrayList<String> testList2 = new ArrayList();
+		testList2.addAll(Arrays.asList("acadaacbda".split("")));
+		suffix_2.train(testList2);
+
+		Tree<String> suffix_3 = new Tree(3);
+		ArrayList<String> testList3 = new ArrayList();
+		testList3.addAll(Arrays.asList("abcccdaadcdaabcadad".split("")));
+		suffix_3.train(testList3);
 
 		Tree<Integer> suffix_pitch = new Tree(3);
 		suffix_pitch.train(midiNotesMary.getPitchArray());
@@ -129,8 +145,11 @@ public class suffixTreeMain extends PApplet {
 		Tree<Double> suffix_rhythm = new Tree(3);
 		suffix_rhythm.train(midiNotesMary.getRhythmArray());
 		 if (key == '1') {
+		 	suffix_1.print();
+		 	suffix_2.print();
+		 	suffix_3.print();
 			 suffix_pitch.print();
-			 suffix_rhythm.print();
+			 //suffix_rhythm.print();
 		 }
 
 	}
