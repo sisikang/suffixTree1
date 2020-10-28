@@ -64,7 +64,7 @@ import java.util.ArrayList;
         System.out.println(tokenSequence);
         for (Node node: children)
         {
-          print(numSpacesBefore + 1);
+          node.print(numSpacesBefore + 1);
         //each time you call this from the next child the number of spaces will increase by 1 node.print(numSpacesBefore + 1);
         }
 
