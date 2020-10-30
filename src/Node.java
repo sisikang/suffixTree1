@@ -32,6 +32,10 @@ import java.util.ArrayList;
           for (Node c: children) {
             if (c.addNode(node)) {
               found = true;
+              
+              //add one to count
+              
+              
             }
           }
           if (!found && tokenSequence.size() == node.tokenSequence.size()-1) {

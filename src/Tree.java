@@ -27,9 +27,34 @@ public class Tree<T> {
                     // create a new node with the current sequence, theNewNode root.addNode(theNewNode)
                 }
             }
+           
+            /*sum the total tokens in the input here(totalInputTokens)--
+             * this is most easily done similarly to how we summed our total tokens in the ProbabilityGenerator.
+             * root.pMinElimination( totalInputTokens, Pmin);
+             */
+            
         }
 
+       
         void print() {
             root.print();
         }
+        
+       /* pMinElimination( int totalTokens, float pMin)
+        *  {
+        *  1.find the number of times that the sequence could have occurred( dependent on tokenSequence.size() )
+        *   shouldRemove = empirical probability of the token sequence < pMin (note: handle the empty sequence/ root)
+        *   if we should NOT remove this node
+        *   {for each node (start from the end & go to the front of each array):
+        *   call pMinElimination on all the children nodes
+        *   if they return true (ie, we should remove the node)
+        *   {
+        *   then remove the entire node (which incl. its children)you may usethe ArrayList method.remove()
+        *  		 }
+        *  	 }
+        *   4. return shouldRemove
+        *   }
+        */
+        
+        
 }
