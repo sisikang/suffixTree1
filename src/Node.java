@@ -8,6 +8,7 @@ import java.util.ArrayList;
   public class Node<T> {
       ArrayList<T> tokenSequence; //record if it is the end of the word
       ArrayList<Node> children;
+      int count=1;
 
       public Node(){
           tokenSequence = new ArrayList();
@@ -25,16 +26,13 @@ import java.util.ArrayList;
         if (tokenSequence.equals(node.tokenSequence))
         {
           found = true;
-          //do NOTHING else. You will do things here in the future. But not for now;
+          count++;
         }
         else if( amIaSuffix(node) || (tokenSequence.size()==0)) //note that the empty sequence is always a suffix!
         {
           for (Node c: children) {
             if (c.addNode(node)) {
               found = true;
-              
-              //add one to count
-              
               
             }
           }
@@ -85,6 +83,26 @@ import java.util.ArrayList;
       // Hint #3: You MUST test this separately to make sure it works. That means calling it temporarily from the main class to make sure it works.
 
       // Nothing in your Node adding will work if this is incorrect and you cannot simply assume it is correct if you haven’t tested it.
+      }
+
+      boolean pMinElimination( int totalTokens, double pMin ) {
+//          System.out.println("sequenct="+tokenSequence);
+//          System.out.println("count="+count);
+//          System.out.println("total="+totalTokens);
+//          System.out.println("===========");
+          double p = (double) count / totalTokens;
+          boolean shouldRemove = p < pMin && tokenSequence.size() != 0;
+          if (!shouldRemove) {
+              for (int i=0; i<children.size(); i++) {
+                  Node c = children.get(i);
+                  boolean flag = c.pMinElimination(totalTokens, pMin);
+                  if (flag) {
+                      children.remove(c);
+                      i--;
+                  }
+              }
+          }
+          return shouldRemove;
       }
 
   }

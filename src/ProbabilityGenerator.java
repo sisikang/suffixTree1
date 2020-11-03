@@ -1,4 +1,4 @@
-//Programmer: Sisi Kang
+//Programmer: 
 //Date: Oct 22
 //Description: Suffix Tree
 

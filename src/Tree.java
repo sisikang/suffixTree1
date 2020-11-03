@@ -10,10 +10,13 @@ public class Tree<T> {
 
         Node root;//record the root
         int L;
-        /** Initialize your data structure here. */
-        public Tree(int l) {
+        double Pmin;
+        int totalInputTokens = 0;
+    /** Initialize your data structure here. */
+        public Tree(int l, double pmin) {
             root = new Node();
             L = l;
+            Pmin = pmin;
         }
 
         void train(ArrayList<T> input) {
@@ -32,6 +35,10 @@ public class Tree<T> {
              * this is most easily done similarly to how we summed our total tokens in the ProbabilityGenerator.
              * root.pMinElimination( totalInputTokens, Pmin);
              */
+            for (Node c : (ArrayList<Node>)root.children) {
+                totalInputTokens += c.count;
+            }
+            root.pMinElimination( totalInputTokens, Pmin );
             
         }
 
